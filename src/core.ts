@@ -5,6 +5,8 @@ declare module 'dva-core' {
   export function create(options?: Options): DvaInstance;
 }
 
+declare var window: any;
+
 export {
   Action,
   Model,
@@ -19,7 +21,10 @@ const injectRemoteReduxDevtools = (options: IOptions) => {
   const extraEnhancers = options.extraEnhancers || [];
 
   // @TODO
-  if (process.env.NODE_ENV !== 'production' && !!(global as any).wx) {
+  if (process.env.NODE_ENV !== 'production') {
+    // not miniprogram, return
+    if (!window || !window.wx) return ;
+
     extraEnhancers.push(require('../packages/remote-redux-devtools').default({
       hostname: 'localhost',
       port: 5678,
