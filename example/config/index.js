@@ -1,5 +1,5 @@
 const config = {
-  projectName: 'one-dva',
+  projectName: 'dva-for-taro-example',
   date: '2019-4-9',
   designWidth: 750,
   deviceRatio: {
