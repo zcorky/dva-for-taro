@@ -1,0 +1,1 @@
+export { Provider } from '@tarojs/redux';

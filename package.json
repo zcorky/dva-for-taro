@@ -1,0 +1,98 @@
+{
+  "name": "@zcorky/dva4taro",
+  "version": "0.0.1",
+  "description": "Dva for taro written with TypeScript",
+  "main": "lib/index.js",
+  "repository": "https://github.com/zcorky/dva4taro",
+  "homepage": "https://github.com/zcorky/dva4taro",
+  "bugs": {
+    "url": "https://github.com/zcorky/dva4taro/issues"
+  },
+  "keywords": [
+    "zcorky",
+    "dva4taro",
+    "joi",
+    "node",
+    "koa",
+    "typescript"
+  ],
+  "author": "Zero <uniquecolesmith@gmail.com> (https://moeover.com)",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rimraf -rf lib",
+    "test": "jest -w 1",
+    "coverage": "jest -w 1 && codecov",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@tarojs/redux": "^1.2.23",
+    "@tarojs/taro": "^1.2.23",
+    "@types/jest": "^24.0.11",
+    "@types/node": "^10.9.4",
+    "@zcorky/delay": "^1.0.1",
+    "codecov": "^3.2.0",
+    "cross-env": "^5.2.0",
+    "husky": "^1.2.1",
+    "jest": "^24.5.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.10.0",
+    "tslint-eslint-rules": "^5.3.1",
+    "tslint-jsdoc-rules": "^0.1.2",
+    "typescript": "^3.2.2"
+  },
+  "files": [
+    "lib/"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test"
+    }
+  },
+  "jest": {
+    "roots": [
+      "test"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "test/.*\\.spec\\.(ts|tsx)$",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 90,
+        "lines": 90,
+        "statements": -10
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@tarojs/redux": "^1.2.23",
+    "@tarojs/taro": "^1.2.23"
+  },
+  "dependencies": {
+    "@types/react": "^16.8.13",
+    "@types/redux": "^3.6.0",
+    "dva-core": "^1.4.0"
+  }
+}
