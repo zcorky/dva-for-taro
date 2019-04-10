@@ -18,8 +18,9 @@ export interface IOptions extends Options {
 const injectRemoteReduxDevtools = (options: IOptions) => {
   const extraEnhancers = options.extraEnhancers || [];
 
-  if (process.env.NODE_ENV !== 'production') {
-    extraEnhancers.push(require('../pacakages/remote-redux-devtools').default({
+  // @TODO
+  if (process.env.NODE_ENV !== 'production' && !!(global as any).wx) {
+    extraEnhancers.push(require('../packages/remote-redux-devtools').default({
       hostname: 'localhost',
       port: 5678,
       secure: false,
