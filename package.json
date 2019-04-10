@@ -92,7 +92,6 @@
   },
   "dependencies": {
     "@types/react": "^16.8.13",
-    "@types/redux": "^3.6.0",
     "dva-core": "^1.4.0"
   }
 }

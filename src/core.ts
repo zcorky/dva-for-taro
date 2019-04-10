@@ -15,7 +15,7 @@ export interface IOptions extends Options {
   models: Model[];
 }
 
-export function createStore<T = any>(options: IOptions): Store<any, Action<T>> {
+export function createStore<S = any>(options: IOptions): Store<S> {
   const app = create(options);
 
   if (options.hooks) {
@@ -30,5 +30,5 @@ export function createStore<T = any>(options: IOptions): Store<any, Action<T>> {
 
   app.start();
 
-  return (app as any)._store as any as Store<any, Action<T>>;
+  return (app as any)._store as any as Store<S>;
 }
