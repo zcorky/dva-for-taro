@@ -1,4 +1,5 @@
 import { create } from 'dva-core';
+import { getEnv, ENV_TYPE } from '@tarojs/taro';
 import { Options, Model, Hooks, Store, Action, DvaInstance } from './typings';
 
 declare module 'dva-core' {
@@ -22,8 +23,9 @@ const injectRemoteReduxDevtools = (options: IOptions) => {
 
   // @TODO
   if (process.env.NODE_ENV !== 'production') {
-    // not miniprogram, return
-    if (!window || !window.wx) return ;
+
+    // because packages/remote-redux-devtools use wx variable, so only wechat miniprogram works
+    if (getEnv() !== ENV_TYPE.WEAPP) return ;
 
     extraEnhancers.push(require('../packages/remote-redux-devtools').default({
       hostname: 'localhost',
