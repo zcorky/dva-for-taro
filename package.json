@@ -1,6 +1,6 @@
 {
   "name": "@zcorky/dva-for-taro",
-  "version": "0.0.5-beta.0",
+  "version": "0.0.5-beta.1",
   "description": "Dva for taro written with TypeScript",
   "main": "lib/index.js",
   "repository": "https://github.com/zcorky/dva-for-taro",
@@ -79,7 +79,7 @@
       "global": {
         "branches": 80,
         "functions": 90,
-        "lines": 85,
+        "lines": 80,
         "statements": -10
       }
     }
