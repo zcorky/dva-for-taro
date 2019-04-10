@@ -11,9 +11,9 @@
   "keywords": [
     "zcorky",
     "dva-for-taro",
-    "joi",
-    "node",
-    "koa",
+    "dva4taro",
+    "dva",
+    "taro",
     "typescript"
   ],
   "author": "Zero <uniquecolesmith@gmail.com> (https://moeover.com)",
