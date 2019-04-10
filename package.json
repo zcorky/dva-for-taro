@@ -1,19 +1,19 @@
 {
-  "name": "@zcorky/dva4taro",
+  "name": "@zcorky/dva-for-taro",
   "version": "0.0.2",
   "description": "Dva for taro written with TypeScript",
   "main": "lib/index.js",
-  "repository": "https://github.com/zcorky/dva4taro",
-  "homepage": "https://github.com/zcorky/dva4taro",
+  "repository": "https://github.com/zcorky/dva-for-taro",
+  "homepage": "https://github.com/zcorky/dva-for-taro",
   "bugs": {
-    "url": "https://github.com/zcorky/dva4taro/issues"
+    "url": "https://github.com/zcorky/dva-for-taro/issues"
   },
   "keywords": [
     "zcorky",
+    "dva-for-taro",
     "dva4taro",
-    "joi",
-    "node",
-    "koa",
+    "dva",
+    "taro",
     "typescript"
   ],
   "author": "Zero <uniquecolesmith@gmail.com> (https://moeover.com)",
