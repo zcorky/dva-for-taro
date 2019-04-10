@@ -1,0 +1,21 @@
+
+.content {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  
+  .value {
+    text-align: center;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+
+  .item {
+    margin: 10px;
+  }
+
+}
