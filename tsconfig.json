@@ -28,6 +28,7 @@
       // "noEmitOnError": true,
       // "forceConsistentCasingInFileNames": true,
       "skipLibCheck": true,
+      // "allowJs": true, // @TODO tmp open for remote redux devtools
 
       "outDir": "lib"
     },

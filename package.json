@@ -44,7 +44,8 @@
     "typescript": "^3.2.2"
   },
   "files": [
-    "lib/"
+    "lib/",
+    "packages/"
   ],
   "husky": {
     "hooks": {

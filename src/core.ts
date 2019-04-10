@@ -15,8 +15,28 @@ export interface IOptions extends Options {
   models: Model[];
 }
 
+const injectRemoteReduxDevtools = (options: IOptions) => {
+  const extraEnhancers = options.extraEnhancers || [];
+
+  if (process.env.NODE_ENV !== 'production') {
+    extraEnhancers.push(require('../pacakages/remote-redux-devtools').default({
+      hostname: 'localhost',
+      port: 5678,
+      secure: false,
+    }));
+  }
+
+  return {
+    ...options,
+    extraEnhancers,
+  } as IOptions
+}
+
 export function createStore<S = any>(options: IOptions): Store<S> {
-  const app = create(options);
+  // try to inject remote redux devtools for development, will remove in production
+  const dvaOptions = injectRemoteReduxDevtools(options);
+
+  const app = create(dvaOptions);
 
   if (options.hooks) {
     app.use(options.hooks);
