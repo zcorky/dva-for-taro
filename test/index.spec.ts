@@ -4,7 +4,7 @@ import { createStore, Model } from '../src';
 
 const a = function *() {}
 
-describe('dva4taro', () => {
+describe('dva-for-taro', () => {
   const model = {
     namespace: 'count',
     state: 0,
