@@ -1,6 +1,6 @@
 {
   "name": "@zcorky/dva-for-taro",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Dva for taro written with TypeScript",
   "main": "lib/index.js",
   "repository": "https://github.com/zcorky/dva-for-taro",
