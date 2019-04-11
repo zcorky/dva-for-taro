@@ -1,3 +1,4 @@
+import { RemoteReduxDevToolsOptions } from './../packages/remote-redux-devtools.d';
 import { create } from 'dva-core';
 import { getEnv, ENV_TYPE } from '@tarojs/taro';
 import { Options, Model, Hooks, Store, Action, DvaInstance } from './typings';
@@ -16,6 +17,9 @@ export {
 export interface IOptions extends Options {
   hooks?: Hooks;
   models: Model[];
+  remoteReduxDevTools?: RemoteReduxDevToolsOptions & {
+    enable?: boolean;
+  };
 }
 
 const injectRemoteReduxDevtools = (options: IOptions) => {
@@ -23,15 +27,22 @@ const injectRemoteReduxDevtools = (options: IOptions) => {
 
   // @TODO
   if (process.env.NODE_ENV !== 'production') {
+    if (!options.remoteReduxDevTools || !options.remoteReduxDevTools.enable) {
+      return options;
+    }
 
     // because packages/remote-redux-devtools use wx variable, so only wechat miniprogram works
-    if (getEnv() !== ENV_TYPE.WEAPP) return ;
+    if (getEnv() !== ENV_TYPE.WEAPP) {
+      return options;
+    }
 
-    extraEnhancers.push(require('../packages/remote-redux-devtools').default({
+    const devtoolsOptions = options.remoteReduxDevTools || {
       hostname: 'localhost',
       port: 5678,
       secure: false,
-    }));
+    };
+
+    extraEnhancers.push(require('../packages/remote-redux-devtools').default(devtoolsOptions));
   }
 
   return {
