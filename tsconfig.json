@@ -11,7 +11,7 @@
       // "noUnusedLocals": true,
       "lib": ["es2018"],
       "declaration": true,
-      "sourceMap": true,
+      "sourceMap": false,
       "removeComments": true,
 
       "esModuleInterop": true,
@@ -28,6 +28,7 @@
       // "noEmitOnError": true,
       // "forceConsistentCasingInFileNames": true,
       "skipLibCheck": true,
+      // "allowJs": true, // @TODO tmp open for remote redux devtools
 
       "outDir": "lib"
     },
