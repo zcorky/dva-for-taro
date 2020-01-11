@@ -88,12 +88,12 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@tarojs/redux": "^1.2.23",
-    "@tarojs/taro": "^1.2.23",
-    "redux": ">=3 <4"
+    "@tarojs/redux": "2.x",
+    "@tarojs/taro": "2.x",
+    "redux": "3.x"
   },
   "dependencies": {
     "@types/react": "^16.8.13",
-    "dva-core": "^1.4.0"
+    "dva-core": "1.4.0"
   }
 }
