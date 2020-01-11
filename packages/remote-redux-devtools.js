@@ -4668,6 +4668,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var actionCreators = void 0;
 	var stateSanitizer = void 0;
 	var actionSanitizer = void 0;
+	// custom message attributes, for auth(user info), log(device info)
+	var attributes = void 0;
 
 	function getLiftedState() {
 	  return (0, _filters.filterStagedActions)(store.liftedStore.getState(), filters);
@@ -4698,20 +4700,23 @@ return /******/ (function(modules) { // webpackBootstrap
 	function relay(type, state, action, nextActionId) {
 	  if ((0, _filters.isFiltered)(action, filters)) return;
 	  var message = {
+			attributes,
 	    type: type,
 	    id: socket.id,
 	    name: instanceName
 	  };
 	  if (state) {
 	    message.payload = type === 'ERROR' ? state : (0, _jsan.stringify)((0, _filters.filterState)(state, type, filters, stateSanitizer, actionSanitizer, nextActionId));
-	  }
+		}
+		
 	  if (type === 'ACTION') {
 	    message.action = (0, _jsan.stringify)(!actionSanitizer ? action : actionSanitizer(action.action, nextActionId - 1));
 	    message.isExcess = isExcess;
 	    message.nextActionId = nextActionId;
 	  } else if (action) {
 	    message.action = action;
-	  }
+		}
+		
 	  socket.emit(socket.id ? 'log' : 'log-noid', message);
 	}
 
@@ -4765,7 +4770,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 
 	function init(options) {
-	  instanceName = options.name;
+		instanceName = options.name;
+		attributes = options.attributes;
+		
 	  if (options.filters) {
 	    filters = options.filters;
 	  }
