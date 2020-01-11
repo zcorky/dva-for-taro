@@ -100,6 +100,41 @@ export interface RemoteReduxDevToolsOptions {
    * You can use, for example Project Name.
    */
   name?: string;
+
+  /**
+   * Message Data Attributes
+   * 
+   * The Greatest Design, Open custom attributes
+   * 
+   * You can use it to
+   *  1.authenticate with userinfo, like
+   *    attributes: {
+   *      user: {
+   *        id: 'OPENID',
+   *      },
+   *    }
+   * 
+   *  2.log better, with device info or other
+   *    attributes: {
+   *      device: {
+   *        platform: 'XXX', // 
+   *        // like window.location.userAgent (in browser)
+   *        //    taro.getEnv() (in taro miniprogram)
+   *        userAgent: 'XXX', 
+   *      },
+   *    },
+   * 
+   *  3.Wechat miniprogram project info
+   *    attributes: {
+   *      project: {
+   *        name: 'NAME',
+   *        appId: 'DEVELOPER APP_ID',
+   *      },
+   *    }
+   * 
+   *  4.and so son, many many many ... Imagine Your Self.
+   */
+  attributes?: any;
 }
 
 export default function createRemoteReduxDevtoolsEnhancer(options: RemoteReduxDevToolsOptions): void;
