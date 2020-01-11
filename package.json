@@ -89,7 +89,8 @@
   },
   "peerDependencies": {
     "@tarojs/redux": "^1.2.23",
-    "@tarojs/taro": "^1.2.23"
+    "@tarojs/taro": "^1.2.23",
+    "redux": ">=3 <4"
   },
   "dependencies": {
     "@types/react": "^16.8.13",
