@@ -14,6 +14,12 @@ export {
   Model,
 }
 
+const DEFAULT_REMOTE_REDUX_DEVTOOLS_OPTIONS = {
+  hostname: 'localhost',
+  port: 5678,
+  secure: false,
+};
+
 export interface IOptions extends Options {
   hooks?: Hooks;
   models: Model[];
@@ -36,10 +42,9 @@ const injectRemoteReduxDevtools = (options: IOptions) => {
       return options;
     }
 
-    const devtoolsOptions = options.remoteReduxDevTools || {
-      hostname: 'localhost',
-      port: 5678,
-      secure: false,
+    const devtoolsOptions = {
+      ...DEFAULT_REMOTE_REDUX_DEVTOOLS_OPTIONS,
+      ...options.remoteReduxDevTools,
     };
 
     extraEnhancers.push(require('../packages/remote-redux-devtools').default(devtoolsOptions));
