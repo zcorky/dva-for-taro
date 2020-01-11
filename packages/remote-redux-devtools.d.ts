@@ -94,6 +94,12 @@ export interface RemoteReduxDevToolsOptions {
    * You can use, for example, user id here, to know who sent the data.
    */
   id?: string;
+
+  /**
+   * Named socket
+   * You can use, for example Project Name.
+   */
+  name?: string;
 }
 
 export default function createRemoteReduxDevtoolsEnhancer(options: RemoteReduxDevToolsOptions): void;
