@@ -9,6 +9,7 @@
 [![NPM download](https://img.shields.io/npm/dm/@zcorky/dva-for-taro.svg?style=flat-square)](https://www.npmjs.com/package/@zcorky/dva-for-taro)
 ![license](https://img.shields.io/github/license/zcorky/dva-for-taro.svg)
 [![issues](https://img.shields.io/github/issues/zcorky/dva-for-taro.svg)](https://github.com/zcorky/dva-for-taro/issues)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/zcorky/dva-for-taro)
 
 > Connect dva with taro. It is written fully with Typescript.
 
