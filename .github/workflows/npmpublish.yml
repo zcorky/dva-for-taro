@@ -74,11 +74,12 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-          registry-url: https://npm.pkg.github.com/
+          # registry-url: https://npm.pkg.github.com/
+          registry-url: https://registry.npmjs.org/
           scope: '@zcorky'
       # - run: npm ci
       - run: npm i -g yarn
       - run: yarn
-      - run: npm publish
+      - run: npm publish --registry https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
