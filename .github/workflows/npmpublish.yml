@@ -75,7 +75,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-          scope: '@whatwewant'
+          scope: '@zcorky'
       # - run: npm ci
       - run: npm i -g yarn
       - run: yarn
