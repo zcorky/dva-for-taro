@@ -6,29 +6,40 @@ on:
       - master
 
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    steps: 
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm i -g yarn
-      - run: yarn
+#   install:
+#     runs-on: ubuntu-latest
+#     steps: 
+#       - uses: actions/checkout@v1
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: 12
+#       - run: npm i -g yarn
+#       - run: yarn
     
-  build:
-    needs: install
+#   build:
+#     needs: install
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v1
+#       - uses: actions/setup-node@v1
+#         with:
+#           node-version: 12
+#       # - run: npm ci
+#       - run: yarn test
+  
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      # - run: npm ci
+      - run: npm i -g yarn
+      - run: yarn
       - run: yarn test
 
   publish-npm:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -37,12 +48,14 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       # - run: npm ci
+      - run: npm i -g yarn
+      - run: yarn
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
   publish-gpr:
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -52,6 +65,8 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           scope: '@your-github-username'
       # - run: npm ci
+      - run: npm i -g yarn
+      - run: yarn
       - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
