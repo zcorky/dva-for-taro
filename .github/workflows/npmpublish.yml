@@ -79,6 +79,6 @@ jobs:
       # - run: npm ci
       - run: npm i -g yarn
       - run: yarn
-      - run: yarn publish
+      - run: yarn publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
