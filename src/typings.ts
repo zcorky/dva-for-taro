@@ -24,7 +24,7 @@ export interface OnReducer {
   (reducer: Reducer<any>): void;
 }
 
-export interface Hooks {
+export interface Hook {
   onError?(error: Error, dispatch: Dispatch<any>): void;
   onAction?: OnAction | OnAction[];
   onStateChange?(): void;
@@ -60,7 +60,7 @@ export type Subscription = (api?: SubscriptionAPI) => void;
 export type SubscriptionsMapObject = Record<string, Subscription>;
 export type Router = (api?: RouterAPI) => JSX.Element | object;
 
-export type Options = Hooks & {
+export type Options = Hook & {
   initialState?: object;
   history?: object;
 };
@@ -77,9 +77,9 @@ export interface DvaInstance {
   /**
    * Register an object of hooks on the application.
    *
-   * @param hooks
+   * @param hook
    */
-  use(hooks: Hooks): void;
+  use(hook: Hook): void;
 
   /**
    * Register a model.

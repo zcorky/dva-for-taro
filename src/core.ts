@@ -1,7 +1,7 @@
 import { RemoteReduxDevToolsOptions } from './../packages/remote-redux-devtools.d';
 import { create } from 'dva-core';
 import { getEnv, ENV_TYPE } from '@tarojs/taro';
-import { Options, Model, Hooks, Store, Action, DvaInstance } from './typings';
+import { Options, Model, Hook, Store, Action, DvaInstance } from './typings';
 
 declare module 'dva-core' {
   export function create(options?: Options): DvaInstance;
@@ -21,7 +21,7 @@ const DEFAULT_REMOTE_REDUX_DEVTOOLS_OPTIONS = {
 };
 
 export interface IOptions extends Options {
-  hooks?: Hooks;
+  hooks?: Hook[] | Hook;
   models: Model[];
   remoteReduxDevTools?: RemoteReduxDevToolsOptions & {
     enable?: boolean;
@@ -63,7 +63,13 @@ export function createStore<S = any>(options: IOptions): Store<S> {
   const app = create(dvaOptions);
 
   if (options.hooks) {
-    app.use(options.hooks);
+    if (Array.isArray(options.hooks)) {
+      options.hooks.forEach(hook => {
+        app.use(hook);
+      });
+    } else {
+      app.use(options.hooks);
+    }
   }
 
   options.models.forEach(model => {
