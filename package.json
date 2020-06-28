@@ -1,6 +1,6 @@
 {
   "name": "@zcorky/dva-for-taro",
-  "version": "0.0.12",
+  "version": "1.0.0",
   "description": "Dva for taro written with TypeScript",
   "main": "lib/index.js",
   "repository": "https://github.com/zcorky/dva-for-taro",
@@ -78,7 +78,7 @@
     "coverageThreshold": {
       "global": {
         "branches": 40,
-        "functions": 70,
+        "functions": 50,
         "lines": 60,
         "statements": -10
       }
