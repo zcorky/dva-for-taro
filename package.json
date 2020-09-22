@@ -26,10 +26,11 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "@tarojs/redux": "^1.2.23",
-    "@tarojs/taro": "^1.2.23",
     "@types/jest": "^24.0.11",
     "@types/node": "^10.9.4",
+    "@types/react": "^16.8.13",
+    "@types/react-redux": "^7.1.9",
+    "@tarojs/taro": "^1.2.23",
     "@zcorky/delay": "^1.0.1",
     "codecov": "^3.2.0",
     "cross-env": "^5.2.0",
@@ -41,7 +42,7 @@
     "tslint": "^5.10.0",
     "tslint-eslint-rules": "^5.3.1",
     "tslint-jsdoc-rules": "^0.1.2",
-    "typescript": "^3.2.2"
+    "typescript": "^4.0.3"
   },
   "files": [
     "lib/",
@@ -87,13 +88,10 @@
   "publishConfig": {
     "access": "public"
   },
-  "peerDependencies": {
-    "@tarojs/redux": "2.x",
-    "@tarojs/taro": "2.x",
-    "redux": "3.x"
-  },
   "dependencies": {
-    "@types/react": "^16.8.13",
     "dva-core": "1.4.0"
+  },
+  "peerDependencies": {
+    "react-redux": "7.x"
   }
 }

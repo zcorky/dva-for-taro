@@ -1,1 +1,3 @@
-export { connect } from '@tarojs/redux';
+import { connect } from 'react-redux';
+
+export default connect;
